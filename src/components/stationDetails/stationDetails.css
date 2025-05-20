@@ -1,0 +1,12 @@
+.stationDetails {
+    width: 250px;
+    height: 300px;
+}
+
+.stationDetails__name {
+    margin-top: 10px;
+}
+
+.stationDetails__latestMeasurementsTitle {
+    margin-top: 20px;
+}

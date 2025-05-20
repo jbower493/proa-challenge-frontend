@@ -3,7 +3,7 @@ import { Map } from "../map";
 
 export function App() {
   const { data } = useWeatherStationsQuery();
-  console.log(data);
+
   const markers = (data || []).map(({ latitude, longitude, id }) => ({
     stationId: id,
     lat: latitude,

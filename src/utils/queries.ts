@@ -26,14 +26,14 @@ export function useWeatherStationsQuery() {
   });
 }
 
-type WeatherStationDetailsWithLatestMeasurements = {
+export type WeatherStationDetailsWithLatestMeasurements = {
   latest_measurements: {
     name: string;
     unit: string;
     long_name: string;
     value: number;
     timestamp: string;
-  };
+  }[];
   id: number;
   name: string;
   site: string;
@@ -50,7 +50,15 @@ export function useWeatherStationDetailsWithLatestMeasurementsQuery(
     queryKey: ["weather-stations", id],
     queryFn: async () =>
       fetch(`http://localhost:3000/api/weather-stations/${id}`)
-        .then((res) => res.json())
-        .then((data) => data as WeatherStationDetailsWithLatestMeasurements),
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error("Fetch failed");
+          }
+
+          return res.json();
+        })
+        .then(
+          (data) => data.data as WeatherStationDetailsWithLatestMeasurements
+        ),
   });
 }

@@ -30,9 +30,7 @@ const center = {
   lng: 133.925162,
 };
 
-const zoom = 4.9;
-
-// const markers = [{ lat: -28.434214, lng: 133.925162 }];
+const zoom = 4.8;
 
 export function Map({ markers = [] }: Props) {
   const { isLoaded } = useJsApiLoader({
@@ -88,14 +86,3 @@ export function Map({ markers = [] }: Props) {
     </GoogleMap>
   );
 }
-
-/**
- * Station name
- * Site
- * Portfolio
- *
- * Long name
- * Unit
- * Measured value
- * Timestamp
- */
