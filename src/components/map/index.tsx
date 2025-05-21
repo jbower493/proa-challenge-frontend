@@ -73,13 +73,15 @@ export function Map({ markers = [] }: Props) {
     >
       {markers
         .filter((marker) => states[marker.state])
-        .map(({ lat, lng, stationId, state }, i) => (
-          <Marker
-            key={i}
-            position={{ lat, lng }}
-            onClick={() => setSelectedStation({ stationId, lat, lng, state })}
-          />
-        ))}
+        .map(({ lat, lng, stationId, state }) => {
+          return (
+            <Marker
+              key={stationId}
+              position={{ lat, lng }}
+              onClick={() => setSelectedStation({ stationId, lat, lng, state })}
+            />
+          );
+        })}
 
       {selectedStation && (
         <InfoWindow
