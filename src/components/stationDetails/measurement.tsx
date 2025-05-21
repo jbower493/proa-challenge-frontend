@@ -15,10 +15,3 @@ export function Measurement({ long_name, timestamp, unit, value }: Props) {
     </div>
   );
 }
-
-/**
- * Long name
- * Unit
- * Measured value
- * Timestamp
- */

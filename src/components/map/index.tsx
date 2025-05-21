@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useContext, useState } from "react";
 import {
   GoogleMap,
   Marker,
@@ -6,6 +6,7 @@ import {
   useJsApiLoader,
 } from "@react-google-maps/api";
 import { StationDetails } from "../stationDetails";
+import { FiltersContext } from "../app/filtersContext";
 
 type MapLocation = {
   lat: number;
@@ -21,8 +22,8 @@ type Props = {
 };
 
 const containerStyle = {
-  width: "1000px",
-  height: "850px",
+  width: "800px",
+  height: "700px",
 };
 
 const center = {
@@ -30,20 +31,23 @@ const center = {
   lng: 133.925162,
 };
 
-const zoom = 4.8;
+const zoom = 4.6;
 
 export function Map({ markers = [] }: Props) {
+  const { state } = useContext(FiltersContext);
+
+  console.log(state);
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
   });
 
-  const [, setMap] = useState(null);
+  const [, setMap] = useState<google.maps.Map | null>(null);
   const [selectedStation, setSelectedStation] = useState<StationMarker | null>(
     null
   );
 
-  const onLoad = useCallback(function callback(map: any) {
+  const onLoad = useCallback(function callback(map: google.maps.Map) {
     // This is just an example of getting and using the map instance!!! don't just blindly copy!
     const bounds = new window.google.maps.LatLngBounds(center);
     map.fitBounds(bounds);

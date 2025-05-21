@@ -34,14 +34,3 @@ export function StationDetails({ id }: Props) {
     </div>
   );
 }
-
-/**
- * Station name
- * Site
- * Portfolio
- *
- * Long name
- * Unit
- * Measured value
- * Timestamp
- */
