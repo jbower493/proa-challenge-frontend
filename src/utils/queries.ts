@@ -1,11 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
+import type { States } from "../components/app/filtersContext";
 
 type WeatherStationsData = {
   id: number;
   ws_name: string;
   site: string;
   portfolio: string;
-  state: string;
+  state: States;
   latitude: number;
   longitude: number;
 }[];

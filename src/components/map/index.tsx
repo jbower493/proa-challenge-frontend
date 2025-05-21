@@ -6,7 +6,7 @@ import {
   useJsApiLoader,
 } from "@react-google-maps/api";
 import { StationDetails } from "../stationDetails";
-import { FiltersContext } from "../app/filtersContext";
+import { FiltersContext, type States } from "../app/filtersContext";
 
 type MapLocation = {
   lat: number;
@@ -15,6 +15,7 @@ type MapLocation = {
 
 type StationMarker = MapLocation & {
   stationId: number;
+  state: States;
 };
 
 type Props = {
@@ -34,9 +35,8 @@ const center = {
 const zoom = 4.6;
 
 export function Map({ markers = [] }: Props) {
-  const { state } = useContext(FiltersContext);
+  const { states } = useContext(FiltersContext);
 
-  console.log(state);
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
@@ -71,13 +71,15 @@ export function Map({ markers = [] }: Props) {
       onLoad={onLoad}
       onUnmount={onUnmount}
     >
-      {markers.map(({ lat, lng, stationId }, i) => (
-        <Marker
-          key={i}
-          position={{ lat, lng }}
-          onClick={() => setSelectedStation({ stationId, lat, lng })}
-        />
-      ))}
+      {markers
+        .filter((marker) => states[marker.state])
+        .map(({ lat, lng, stationId, state }, i) => (
+          <Marker
+            key={i}
+            position={{ lat, lng }}
+            onClick={() => setSelectedStation({ stationId, lat, lng, state })}
+          />
+        ))}
 
       {selectedStation && (
         <InfoWindow

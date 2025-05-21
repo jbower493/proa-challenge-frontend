@@ -8,3 +8,12 @@
 .sidebar__title {
     margin-bottom: 20px;
 }
+
+.sidebar__filter {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar__filterInput {
+    margin-right: 10px;
+}

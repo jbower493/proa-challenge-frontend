@@ -1,20 +1,22 @@
 import { createContext } from "react";
 
-export type States =
-  | "NSW"
-  | "VIC"
-  | "QLD"
-  | "WA"
-  | "SA"
-  | "TAS"
-  | "ACT"
-  | "NT"
-  | "";
+export type States = "NSW" | "VIC" | "QLD" | "WA" | "SA" | "TAS" | "ACT" | "NT";
+
+export type StatesFilters = Record<States, boolean>;
 
 export const FiltersContext = createContext<{
-  state: States;
-  setState: (newState: States) => void;
+  states: StatesFilters;
+  toggleState: (state: States) => void;
 }>({
-  state: "",
-  setState: () => {},
+  states: {
+    ACT: false,
+    NSW: false,
+    NT: false,
+    QLD: false,
+    SA: false,
+    TAS: false,
+    VIC: false,
+    WA: false,
+  },
+  toggleState: () => {},
 });
