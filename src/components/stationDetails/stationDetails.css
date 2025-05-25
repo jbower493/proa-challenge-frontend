@@ -7,6 +7,15 @@
     margin-top: 10px;
 }
 
+.stationDetails__meta {
+    font-weight: 600;
+    color: var(--colorTextSecondary);
+}
+
 .stationDetails__latestMeasurementsTitle {
     margin-top: 20px;
+}
+
+.stationDetails__noMeasurements {
+    margin-top: 10px;
 }

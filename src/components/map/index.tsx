@@ -18,10 +18,6 @@ type StationMarker = MapLocation & {
   state: States;
 };
 
-type Props = {
-  markers?: StationMarker[];
-};
-
 const center = {
   lat: -28.434214,
   lng: 133.925162,
@@ -29,7 +25,12 @@ const center = {
 
 const zoom = 4.6;
 
-export function Map({ markers = [] }: Props) {
+type Props = {
+  markers?: StationMarker[];
+  isMapUiShowing: boolean;
+};
+
+export function Map({ markers = [], isMapUiShowing }: Props) {
   const { states } = useContext(FiltersContext);
 
   const [selectedStation, setSelectedStation] = useState<StationMarker | null>(
@@ -41,12 +42,12 @@ export function Map({ markers = [] }: Props) {
       <GoogleMap
         style={{
           width: "800px",
-          height: "700px",
+          height: "650px",
         }}
         defaultCenter={center}
         defaultZoom={zoom}
         gestureHandling={"greedy"}
-        // disableDefaultUI={true}
+        disableDefaultUI={!isMapUiShowing}
       >
         {markers
           .filter((marker) => states[marker.state])

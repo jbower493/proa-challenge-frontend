@@ -7,11 +7,59 @@
 
 .sidebar__title {
     margin-bottom: 20px;
+    font-size: 20px;
 }
 
-.sidebar__filter {
+.sidebar__filterTitleContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sidebar__filterTitle {
+    margin-bottom: 5px;
+    font-size: 17px;
+    color: var(--colorTextSecondary);
+}
+
+.sidebar__filterToggle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: none;
+    background-color: transparent;
+    color: var(--colorBackgroundPrimary);
+    border: 1px solid var(--colorBackgroundPrimary);
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.15s ease;
+}
+
+.sidebar__filter--open .sidebar__filterToggle {
+    transform: rotate(180deg);
+}
+
+.sidebar__filterToggleIcon {
+    font-weight: 700;
+}
+
+.sidebar__filterOptions {
     display: flex;
     flex-direction: column;
+    height: 0px;
+    overflow: hidden;
+    transition: height 0.15s ease;
+}
+
+.sidebar__filter--open .sidebar__filterOptions {
+height: 184px;
+}
+
+.sidebar__filterLabel {
+    font-size: 14px;
+    margin-top: 2px;
 }
 
 .sidebar__filterInput {

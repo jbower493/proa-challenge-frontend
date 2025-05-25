@@ -9,8 +9,10 @@ import {
   type States,
   type StatesFilters,
 } from "./filtersContext";
+import { Button } from "../Button";
 
 export function App() {
+  const [isMapUiShowing, setIsMapUiShowing] = useState(true);
   const [states, setStates] = useState<StatesFilters>({
     ACT: true,
     NSW: true,
@@ -42,7 +44,15 @@ export function App() {
         <main className="mainPage">
           <Sidebar />
           <div className="mapContainer">
-            <Map markers={markers} />
+            <div className="mapContainer__top">
+              <h1 className="mapContainer__title">
+                Weather Stations in Australia
+              </h1>
+              <Button onClick={() => setIsMapUiShowing((prev) => !prev)}>
+                Toggle Map UI
+              </Button>
+            </div>
+            <Map markers={markers} isMapUiShowing={isMapUiShowing} />
           </div>
         </main>
       </div>

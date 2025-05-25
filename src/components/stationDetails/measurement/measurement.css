@@ -1,0 +1,16 @@
+.measurement {
+    margin-top: 10px;
+}
+
+.measurement__name {
+    color: var(--colorTextSecondary);
+    margin-bottom: 4px;
+}
+
+.measurement__value {
+    font-weight: 500;
+}
+
+.measurement__timestamp {
+    margin-top: 2px;
+}

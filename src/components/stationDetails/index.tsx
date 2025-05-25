@@ -23,14 +23,24 @@ export function StationDetails({ id }: Props) {
   return (
     <div className="stationDetails">
       <h2>{name}</h2>
-      <p className="stationDetails__name">Site: {site}</p>
-      <p>Portfolio: {portfolio}</p>
+      <p className="stationDetails__name">
+        <span className="stationDetails__meta">Site:</span> {site}
+      </p>
+      <p>
+        <span className="stationDetails__meta">Portfolio:</span> {portfolio}
+      </p>
       <h3 className="stationDetails__latestMeasurementsTitle">
         Latest Measurements
       </h3>
-      {latest_measurements.map((measurement) => (
-        <Measurement key={`${id}_${measurement.name}`} {...measurement} />
-      ))}
+      {latest_measurements.length > 0 ? (
+        latest_measurements.map((measurement) => (
+          <Measurement key={`${id}_${measurement.name}`} {...measurement} />
+        ))
+      ) : (
+        <p className="stationDetails__noMeasurements">
+          No measurements recorded
+        </p>
+      )}
     </div>
   );
 }

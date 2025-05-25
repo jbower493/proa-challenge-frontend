@@ -8,13 +8,18 @@
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+
+  --colorBackgroundPrimary: #3985E9;
+  
+  --colorTextNormal: #3f3f3f;
+  --colorTextInverse: #ffffff;
+  --colorTextSecondary: #727272;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+html {
+  color: var(--colorTextNormal);
 }
-a:hover {
-  color: #535bf2;
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
 }

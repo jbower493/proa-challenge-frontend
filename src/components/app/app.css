@@ -12,6 +12,18 @@
 .mapContainer {
     flex: 1;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    padding: 60px;
+}
+
+.mapContainer__top {
+    margin-bottom: 20px;
+    display: flex;
     align-items: center;
+    justify-content: space-between;
+    width: 800px;
+}
+
+.mapContainer__title {
+    font-size: 24px;
 }
