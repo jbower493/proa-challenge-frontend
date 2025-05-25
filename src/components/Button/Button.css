@@ -6,4 +6,9 @@
     cursor: pointer;
     background-color: var(--colorBackgroundPrimary);
     color: var(--colorTextInverse);
+    transition: background-color 0.4s ease;
+}
+
+.Button:hover {
+    background-color: var(--colorBackgroundPrimaryHover);
 }
