@@ -45,9 +45,7 @@ export function App() {
           <Sidebar />
           <div className="mapContainer">
             <div className="mapContainer__top">
-              <h1 className="mapContainer__title">
-                Weather Stations in Australia
-              </h1>
+              <h1 className="mapContainer__title">Weather Stations</h1>
               <Button onClick={() => setIsMapUiShowing((prev) => !prev)}>
                 Toggle Map UI
               </Button>
