@@ -7,10 +7,17 @@
     margin-bottom: 4px;
 }
 
+.measurement__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
 .measurement__value {
     font-weight: 500;
 }
 
 .measurement__timestamp {
-    margin-top: 2px;
+    color: var(--colorTextSecondary);
+    font-size: 12px;
 }
