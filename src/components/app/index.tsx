@@ -47,7 +47,7 @@ export function App() {
             <div className="mapContainer__top">
               <h1 className="mapContainer__title">Weather Stations</h1>
               <Button onClick={() => setIsMapUiShowing((prev) => !prev)}>
-                {isMapUiShowing ? "Hide" : "Show"} Map UI
+                {isMapUiShowing ? "Hide" : "Show"} Map Controls
               </Button>
             </div>
             <Map markers={markers} isMapUiShowing={isMapUiShowing} />
